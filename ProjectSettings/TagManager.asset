@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Anchor
+  - Zone
+  - Ball
+  - Sliceable
+  - Menu
   layers:
   - Default
   - TransparentFX
@@ -17,11 +21,11 @@ TagManager:
   - OutLine
   - 
   - 
+  - Sliceable
+  - Blue
+  - Red
   - 
-  - 
-  - 
-  - 
-  - 
+  - Post
   - 
   - 
   - 
