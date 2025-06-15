@@ -2,6 +2,8 @@ using UnityEngine;
 using TMPro;
 using System;
 using Unity.XR.CoreUtils;
+using UnityEngine.InputSystem.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class BeatGameManager : MonoBehaviour
 {
@@ -17,6 +19,14 @@ public class BeatGameManager : MonoBehaviour
 
     //게임 설명 게임 오브젝트
     public GameObject introducUI;
+
+    //게임 컨트롤러 모양
+    [SerializeField] private XRBaseController leftController;
+    [SerializeField] private XRBaseController rightController;
+
+    //비트세이버
+    [SerializeField] private GameObject leftSaber;
+    [SerializeField] private GameObject rightSaber;
 
     //게임 시작 이벤트
     public static event Action OnGameStart;
@@ -48,6 +58,13 @@ public class BeatGameManager : MonoBehaviour
         // cam.transform.position = new Vector3(0, 0, 0);;
         // xROrigin.MoveCameraToWorldLocation(new Vector3(0, 0, 0));
         // xROrigin.transform.position = new Vector3(0, 0, 0);
+
+        //게임 시작 시 컨트롤러 모양 없애기
+        leftController.model.gameObject.SetActive(false);
+        rightController.model.gameObject.SetActive(false);
+        //세이버 활성화
+        leftSaber.SetActive(true);
+        rightSaber.SetActive(true);
     }
 
     public void GameEnd()
@@ -56,6 +73,13 @@ public class BeatGameManager : MonoBehaviour
         locomotionSys.SetActive(true);
         //게임 설명 UI 활성화
         introducUI.SetActive(true);
+
+        //게임 시작 시 컨트롤러 모양 없애기
+        leftController.model.gameObject.SetActive(true); 
+        rightController.model.gameObject.SetActive(true);
+        //세이버 비활성화
+        leftSaber.SetActive(false);
+        rightSaber.SetActive(false);
     }
 
 }

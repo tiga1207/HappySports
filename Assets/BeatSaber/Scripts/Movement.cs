@@ -4,8 +4,9 @@ public class Movement : MonoBehaviour
     public Vector3 moveDirection = Vector3.back;
     public float moveDuration = 1.5f; // 큐브가 도착하기까지 걸리는 시간
     public float moveDistance = 5f;     // 플레이어까지 거리
-
+    //큐브 속도
     private float moveSpeed;
+    //난이도에 따른 속도 관리
     private float destoryTime;
     private PooledObject pooledObject;
 

@@ -6,8 +6,10 @@ public class Saber : MonoBehaviour
 {
     public LayerMask sliceableLayer;
     public Material cutMaterial;
-
     private Vector3 previousPos;
+    [SerializeField] private float acceptAngle = 45f;
+    //난이도 변경로직 추가 시 해당 값 변경하면 될 듯
+    public float AcceptAngle => acceptAngle;
     public static event Action OnScoreUp;
 
     void Update()
@@ -22,7 +24,7 @@ public class Saber : MonoBehaviour
 
             if (note != null)
             {
-                if (Vector3.Angle(swingDir, note.GetSwingDir()) < 45f)
+                if (Vector3.Angle(swingDir, note.GetSwingDir()) < acceptAngle)
                 {
                     // 카메라(플레이어가 바라보는 방향 기준으로 절단면 계산)
                     Transform cam = Camera.main.transform;
