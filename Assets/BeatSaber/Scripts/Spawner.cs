@@ -32,7 +32,7 @@ public class Spawner : MonoBehaviour
         {
             PooledObject pooled = cube.GetComponent<PooledObject>();
 
-            ObjectPool pool = new ObjectPool(this.transform, pooled, 1);
+            ObjectPool pool = new(this.transform, pooled);
             poolDic.Add(cube, pool);
         }
     }
@@ -55,8 +55,6 @@ public class Spawner : MonoBehaviour
         cube.transform.position = points[pointIndex].position;
         cube.transform.rotation = Quaternion.identity;
 
-
-        // //TODO: 오브젝트 풀링으로 대여 반납 구조로 변경하기
         // GameObject cube = Instantiate(cubes[cubeIndex], points[pointIndex].position, Quaternion.identity);
 
         //랜덤 방향 회전

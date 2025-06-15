@@ -11,8 +11,8 @@ public class BeatGameManager : MonoBehaviour
     public TextMeshProUGUI timeText;
 
     //카메라
-    // [SerializeField] private Camera cam;
-    // [SerializeField] private XROrigin xROrigin;
+    [SerializeField] private XROrigin xROrigin;
+    [SerializeField] private GameObject startPointTarget;
 
     //XR Locomotion 오브젝트
     public GameObject locomotionSys;
@@ -54,10 +54,17 @@ public class BeatGameManager : MonoBehaviour
         locomotionSys.SetActive(false);
         OnGameStart?.Invoke();
 
-        //TODO: 게임 시작 시 카메라 위치 이동 -> 현재 XR 시뮬의 오류인지, 아니면 코드의 오류인지 판단이 어렵기에, 추후 테스트
-        // cam.transform.position = new Vector3(0, 0, 0);;
-        // xROrigin.MoveCameraToWorldLocation(new Vector3(0, 0, 0));
-        // xROrigin.transform.position = new Vector3(0, 0, 0);
+        //카메라 회전
+        Transform cam = xROrigin.Camera.transform;
+        // 카메라의 현재 회전값 (월드 기준)
+        Quaternion camRot = cam.rotation;
+        // 그 회전의 역방향으로 XR Origin 보정하기
+        Quaternion inverse = Quaternion.Inverse(camRot);
+        xROrigin.transform.rotation = inverse;
+
+        //XR 위치 이동
+        Transform targetPos = startPointTarget.transform;
+        xROrigin.MoveCameraToWorldLocation(new Vector3(targetPos.position.x, xROrigin.CameraYOffset, targetPos.position.z));
 
         //게임 시작 시 컨트롤러 모양 없애기
         leftController.model.gameObject.SetActive(false);
@@ -75,11 +82,22 @@ public class BeatGameManager : MonoBehaviour
         introducUI.SetActive(true);
 
         //게임 시작 시 컨트롤러 모양 없애기
-        leftController.model.gameObject.SetActive(true); 
+        leftController.model.gameObject.SetActive(true);
         rightController.model.gameObject.SetActive(true);
         //세이버 비활성화
         leftSaber.SetActive(false);
         rightSaber.SetActive(false);
+    }
+    public void sendHaptic(bool isLeft, float _amplitude, float _duration)
+    {
+        if (isLeft && leftController != null)
+        {
+            leftController.SendHapticImpulse(_amplitude, _duration);
+        }
+        else if (!isLeft && rightController != null)
+        {
+            rightController.SendHapticImpulse(_amplitude, _duration);
+        }
     }
 
 }

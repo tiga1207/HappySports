@@ -7,9 +7,17 @@ public class Saber : MonoBehaviour
     public LayerMask sliceableLayer;
     public Material cutMaterial;
     private Vector3 previousPos;
+    //게임 매니저
+    [SerializeField] private BeatGameManager gameManager;
+    //진동관련
+    [SerializeField] private bool isLeft;
+    private float _duration = 0.10f;
+    private float _amplitude = 0.5f;
     [SerializeField] private float acceptAngle = 45f;
     //난이도 변경로직 추가 시 해당 값 변경하면 될 듯
-    public float AcceptAngle => acceptAngle;
+    public float AcceptAngle { get => acceptAngle; set => acceptAngle = value; }
+    //파티클
+    [SerializeField] private ParticleSystem particle;
     public static event Action OnScoreUp;
 
     void Update()
@@ -31,7 +39,12 @@ public class Saber : MonoBehaviour
                     Vector3 cutNormal = Vector3.Cross(swingDir, cam.forward).normalized;
 
                     SlicedHull hull = hit.transform.gameObject.Slice(hit.point, cutNormal, cutMaterial);
-                    //TODO: 점수 증가 이벤트 호출
+                    SpawnParticle(hit.point);
+
+                    //TODO: 진동울리게 하기.
+                    gameManager.sendHaptic(isLeft, _amplitude, _duration);
+
+                    //점수 증가 이벤트 호출
                     OnScoreUp?.Invoke();
 
                     if (hull != null)
@@ -46,7 +59,6 @@ public class Saber : MonoBehaviour
                         lower.AddComponent<Rigidbody>();
 
                         //짤린 오브젝트 파괴
-                        //TODO: 오브젝트풀링 반납구조로 변경 예정정 
                         Destroy(hit.transform.gameObject);
 
                         //3초뒤 짤린 오브젝트 파괴
@@ -60,6 +72,11 @@ public class Saber : MonoBehaviour
         previousPos = transform.position;
     }
 
+    private void SpawnParticle(Vector3 _pos)
+    {
+        ParticleSystem ps = Instantiate(particle, _pos, Quaternion.identity);
+        float _time = ps.main.duration + ps.main.startLifetime.constantMax;
+        Destroy(ps.gameObject, _time);
 
-
+    }
 }
