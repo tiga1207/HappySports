@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 public class Spawner : MonoBehaviour
 {
@@ -6,6 +7,9 @@ public class Spawner : MonoBehaviour
     // public BeatGameManager gameManager;
     public BeatSoundManager beatManager;
     public bool isGameStart;
+
+    //오브젝트 풀링
+    private Dictionary<GameObject, ObjectPool> poolDic;
 
 
     void OnEnable()
@@ -19,6 +23,19 @@ public class Spawner : MonoBehaviour
         beatManager.OnBeat -= SpawnCube;
         BeatGameManager.OnGameStart -= GameStart;
     }
+    void Start()
+    {
+        //딕셔너리 초기화
+        poolDic = new();
+        //foreach문으로 큐브 배열에 있는 큐브들 오브젝트 풀링 적용
+        foreach (GameObject cube in cubes)
+        {
+            PooledObject pooled = cube.GetComponent<PooledObject>();
+
+            ObjectPool pool = new ObjectPool(this.transform, pooled, 1);
+            poolDic.Add(cube, pool);
+        }
+    }
     void GameStart() =>
         isGameStart = true;
 
@@ -28,9 +45,21 @@ public class Spawner : MonoBehaviour
         int cubeIndex = Random.Range(0, cubes.Length);
         int pointIndex = Random.Range(0, points.Length);
 
-        //TODO: 오브젝트 풀링으로 대여 반납 구조로 변경하기
-        GameObject cube = Instantiate(cubes[cubeIndex], points[pointIndex].position, Quaternion.identity);
+        //오브젝트 풀링
+        GameObject cubPrefab = cubes[cubeIndex];
+        ObjectPool pool = poolDic[cubPrefab];
 
+        PooledObject pooledObj = pool.PopPool();
+        GameObject cube = pooledObj.gameObject;
+
+        cube.transform.position = points[pointIndex].position;
+        cube.transform.rotation = Quaternion.identity;
+
+
+        // //TODO: 오브젝트 풀링으로 대여 반납 구조로 변경하기
+        // GameObject cube = Instantiate(cubes[cubeIndex], points[pointIndex].position, Quaternion.identity);
+
+        //랜덤 방향 회전
         CutDirection randomDirection = (CutDirection)Random.Range(0, 4);
         cube.transform.rotation = GetRotCube(randomDirection);
 

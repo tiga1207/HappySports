@@ -1,11 +1,16 @@
 using UnityEngine;
 using TMPro;
 using System;
+using Unity.XR.CoreUtils;
 
 public class BeatGameManager : MonoBehaviour
 {
     public BeatSoundManager soundManager;
     public TextMeshProUGUI timeText;
+
+    //카메라
+    // [SerializeField] private Camera cam;
+    // [SerializeField] private XROrigin xROrigin;
 
     //XR Locomotion 오브젝트
     public GameObject locomotionSys;
@@ -38,6 +43,11 @@ public class BeatGameManager : MonoBehaviour
         soundManager.musicSource.Play();
         locomotionSys.SetActive(false);
         OnGameStart?.Invoke();
+
+        //TODO: 게임 시작 시 카메라 위치 이동 -> 현재 XR 시뮬의 오류인지, 아니면 코드의 오류인지 판단이 어렵기에, 추후 테스트
+        // cam.transform.position = new Vector3(0, 0, 0);;
+        // xROrigin.MoveCameraToWorldLocation(new Vector3(0, 0, 0));
+        // xROrigin.transform.position = new Vector3(0, 0, 0);
     }
 
     public void GameEnd()

@@ -7,6 +7,16 @@ public class Movement : MonoBehaviour
 
     private float moveSpeed;
     private float destoryTime;
+    private PooledObject pooledObject;
+
+    void Awake()
+    {
+        pooledObject = GetComponent<PooledObject>();
+    }
+    void OnEnable()
+    {
+        destoryTime = 0f;
+    }
 
     void Start()
     {
@@ -19,6 +29,7 @@ public class Movement : MonoBehaviour
         destoryTime += Time.deltaTime;
 
         if (destoryTime > moveDuration + 1f)
-            Destroy(gameObject);
+            // Destroy(gameObject);
+            pooledObject?.ReturnPool();
     }
 }
