@@ -41,7 +41,7 @@ public class Saber : MonoBehaviour
                     SlicedHull hull = hit.transform.gameObject.Slice(hit.point, cutNormal, cutMaterial);
                     SpawnParticle(hit.point);
 
-                    //TODO: 진동울리게 하기.
+                    //진동울리게 하기.
                     gameManager.sendHaptic(isLeft, _amplitude, _duration);
 
                     //점수 증가 이벤트 호출

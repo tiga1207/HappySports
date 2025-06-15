@@ -4,7 +4,7 @@ using System;
 public class BeatSoundManager : MonoBehaviour
 {
     public float bpm = 105f;
-    public float leadTime = 1.5f; // 미리 나와야 하는 시간
+    public float leadTime = 1.7f; // 미리 나와야 하는 시간
     public AudioSource musicSource;
     private float beat;
     private float timer;
