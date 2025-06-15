@@ -3,7 +3,7 @@ public class Spawner : MonoBehaviour
 {
     public GameObject[] cubes;
     public Transform[] points;
-    public BeatGameManager gameManager;
+    // public BeatGameManager gameManager;
     public BeatSoundManager beatManager;
     public bool isGameStart;
 
@@ -11,13 +11,13 @@ public class Spawner : MonoBehaviour
     void OnEnable()
     {
         beatManager.OnBeat += SpawnCube;
-        gameManager.OnGameStart += GameStart;
+        BeatGameManager.OnGameStart += GameStart;
 
     }
     void OnDisable()
     {
         beatManager.OnBeat -= SpawnCube;
-        gameManager.OnGameStart -= GameStart;
+        BeatGameManager.OnGameStart -= GameStart;
     }
     void GameStart() =>
         isGameStart = true;

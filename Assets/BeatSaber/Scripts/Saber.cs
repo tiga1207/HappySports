@@ -8,7 +8,7 @@ public class Saber : MonoBehaviour
     public Material cutMaterial;
 
     private Vector3 previousPos;
-    public event Action OnScoreUp;
+    public static event Action OnScoreUp;
 
     void Update()
     {

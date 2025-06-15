@@ -14,7 +14,7 @@ public class BeatGameManager : MonoBehaviour
     public GameObject introducUI;
 
     //게임 시작 이벤트
-    public event Action OnGameStart;
+    public static event Action OnGameStart;
     void OnEnable()
     {
         soundManager.OnMusicEnd += GameEnd;
