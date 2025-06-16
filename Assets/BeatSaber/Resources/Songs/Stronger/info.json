@@ -1,0 +1,152 @@
+{
+  "_version": "2.0.0",
+  "_songName": "Stronger",
+  "_songSubName": "",
+  "_songAuthorName": "TheFatRat, Slaydit & Anjulie",
+  "_levelAuthorName": "SmokeyBacon & Aalto(Guest Diffs)",
+  "_beatsPerMinute": 160,
+  "_shuffle": 0,
+  "_shufflePeriod": 0.5,
+  "_previewStartTime": 40.3,
+  "_previewDuration": 10,
+  "_songFilename": "song.mp3",
+  "_coverImageFilename": "cover.jpg",
+  "_environmentName": "FitBeatEnvironment",
+  "_songTimeOffset": 0,
+  "_customData": {
+    "_editors": {
+      "MMA2": {
+        "version": "4.8.1"
+      },
+      "_lastEditedBy": "ChroMapper",
+      "ChroMapper": {
+        "version": "0.7.391"
+      }
+    },
+    "_contributors": [
+      {
+        "_name": "SmokeyBacon",
+        "_role": "Lighter & E+",
+        "_iconPath": "Nagatoro_big.jpg"
+      },
+      {
+        "_name": "AaltopahWi",
+        "_role": "Guest Difficulties",
+        "_iconPath": "aalto.jpg"
+      }
+    ]
+  },
+  "_difficultyBeatmapSets": [
+    {
+      "_beatmapCharacteristicName": "Standard",
+      "_difficultyBeatmaps": [
+        {
+          "_difficulty": "Normal",
+          "_difficultyRank": 3,
+          "_beatmapFilename": "NormalStandard.json",
+          "_noteJumpMovementSpeed": 16,
+          "_noteJumpStartBeatOffset": -0.2,
+          "_customData": {
+            "_editorOffset": 0,
+            "_editorOldOffset": 0,
+            "_suggestions": [
+              "Chroma"
+            ],
+            "_colorLeft": {
+              "r": 1,
+              "g": 0,
+              "b": 0
+            },
+            "_colorRight": {
+              "r": 0.018,
+              "g": 0,
+              "b": 1
+            },
+            "_obstacleColor": {
+              "r": 1,
+              "g": 0,
+              "b": 0
+            },
+            "_difficultyLabel": "(GD) Hard"
+          }
+        },
+        {
+          "_difficulty": "Hard",
+          "_difficultyRank": 5,
+          "_beatmapFilename": "HardStandard.json",
+          "_noteJumpMovementSpeed": 19,
+          "_noteJumpStartBeatOffset": -0.35,
+          "_customData": {
+            "_editorOffset": 0,
+            "_editorOldOffset": 0,
+            "_suggestions": [
+              "Chroma"
+            ],
+            "_colorLeft": {
+              "r": 1,
+              "g": 0,
+              "b": 0
+            },
+            "_colorRight": {
+              "r": 0.018,
+              "g": 0,
+              "b": 1
+            },
+            "_obstacleColor": {
+              "r": 1,
+              "g": 0,
+              "b": 0
+            },
+            "_difficultyLabel": "(GD) Ex"
+          }
+        },
+        {
+          "_difficulty": "Expert",
+          "_difficultyRank": 7,
+          "_beatmapFilename": "ExpertStandard.json",
+          "_noteJumpMovementSpeed": 19,
+          "_noteJumpStartBeatOffset": -0.35,
+          "_customData": {
+            "_editorOffset": 0,
+            "_editorOldOffset": 0,
+            "_suggestions": [
+              "Chroma"
+            ],
+            "_colorLeft": {
+              "r": 1,
+              "g": 0,
+              "b": 0
+            },
+            "_colorRight": {
+              "r": 0.018,
+              "g": 0,
+              "b": 1
+            },
+            "_obstacleColor": {
+              "r": 1,
+              "g": 0,
+              "b": 0
+            },
+            "_difficultyLabel": "(GD) Ex-"
+          }
+        },
+        {
+          "_difficulty": "ExpertPlus",
+          "_difficultyRank": 9,
+          "_beatmapFilename": "ExpertPlusStandard.json",
+          "_noteJumpMovementSpeed": 20,
+          "_noteJumpStartBeatOffset": -0.5,
+          "_customData": {
+            "_editorOffset": 0,
+            "_editorOldOffset": 0,
+            "_suggestions": [
+              "Chroma"
+            ],
+            "_difficultyLabel": "Bacon's E+"
+          }
+        }
+      ]
+    }
+  ],
+  "_allDirectionsEnvironmentName": "GlassDesertEnvironment"
+}

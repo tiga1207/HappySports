@@ -1,0 +1,61 @@
+{
+  "_version": "2.0.0",
+  "_songName": "RISE",
+  "_songSubName": "(ft. The Glitch Mob, Mako, The Word Alive)",
+  "_songAuthorName": "League Of Legends",
+  "_levelAuthorName": "Bytrius & FakePope",
+  "_beatsPerMinute": 177,
+  "_shuffle": 0,
+  "_shufflePeriod": 0.5,
+  "_previewStartTime": 39,
+  "_previewDuration": 14,
+  "_songFilename": "song.mp3",
+  "_coverImageFilename": "cover.jpg",
+  "_environmentName": "RocketEnvironment",
+  "_allDirectionsEnvironmentName": "GlassDesertEnvironment",
+  "_songTimeOffset": 0,
+  "_customData": {
+    "_contributors": [
+      {
+        "_role": "Lighter",
+        "_name": "FakePope",
+        "_iconPath": "pope.png"
+      },
+      {
+        "_role": "Mapper",
+        "_name": "Bytrius",
+        "_iconPath": "Bytrius-Transparent.png"
+      }
+    ],
+    "_editors": {
+      "_lastEditedBy": "ChroMapper",
+      "MMA2": {
+        "version": "4.7.2"
+      },
+      "ChroMapper": {
+        "version": "0.7.400"
+      }
+    }
+  },
+  "_difficultyBeatmapSets": [
+    {
+      "_beatmapCharacteristicName": "Standard",
+      "_difficultyBeatmaps": [
+        {
+          "_difficulty": "ExpertPlus",
+          "_difficultyRank": 9,
+          "_beatmapFilename": "ExpertPlusStandard.json",
+          "_noteJumpMovementSpeed": 19,
+          "_noteJumpStartBeatOffset": -0.25,
+          "_customData": {
+            "_editorOffset": 0,
+            "_editorOldOffset": 0,
+            "_suggestions": [
+              "Chroma"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

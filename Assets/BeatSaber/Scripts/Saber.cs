@@ -7,15 +7,10 @@ public class Saber : MonoBehaviour
     public LayerMask sliceableLayer;
     public Material cutMaterial;
     private Vector3 previousPos;
-    //게임 매니저
-    [SerializeField] private BeatGameManager gameManager;
-    //진동관련
     [SerializeField] private bool isLeft;
     private float _duration = 0.10f;
     private float _amplitude = 0.5f;
     [SerializeField] private float acceptAngle = 45f;
-    //난이도 변경로직 추가 시 해당 값 변경하면 될 듯
-    public float AcceptAngle { get => acceptAngle; set => acceptAngle = value; }
     //파티클
     [SerializeField] private ParticleSystem particle;
     public static event Action OnScoreUp;
@@ -42,7 +37,7 @@ public class Saber : MonoBehaviour
                     SpawnParticle(hit.point);
 
                     //진동울리게 하기.
-                    gameManager.sendHaptic(isLeft, _amplitude, _duration);
+                    GameManager.Instance.SendHapticFeedback(isLeft, _amplitude, _duration);
 
                     //점수 증가 이벤트 호출
                     OnScoreUp?.Invoke();
