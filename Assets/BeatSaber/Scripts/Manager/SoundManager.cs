@@ -7,6 +7,7 @@ public class SoundManager : CustomSingleton<SoundManager>
 {
 
     public AudioSource musicSource;
+    public float musicSoundVolume = 100f;
     public float BPM { get; private set; }
     private bool isEnded = false;
     public event Action OnMusicEnd;
@@ -27,6 +28,11 @@ public class SoundManager : CustomSingleton<SoundManager>
         musicSource.time = 0;
         isEnded = false;
         musicSource.Play();
+    }
+    public void SetMusicSoundVolume(float _volume)
+    {
+        musicSoundVolume = _volume;
+        musicSource.volume = musicSoundVolume;
     }
 
     public void Stop()

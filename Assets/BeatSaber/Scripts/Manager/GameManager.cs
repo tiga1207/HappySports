@@ -17,7 +17,7 @@ public class GameManager : CustomSingleton<GameManager>
     [SerializeField] private GameObject locomotionSys;
 
     [Header("UI & Controllers")]
-    [SerializeField] private GameObject introducUI;
+    [SerializeField] private GameObject songSelectUI;
     [SerializeField] private XRBaseController leftController;
     [SerializeField] private XRBaseController rightController;
     [SerializeField] private GameObject[] ControllerInteractor; //좌우 컨트롤러 인터렉트 전부
@@ -99,6 +99,9 @@ public class GameManager : CustomSingleton<GameManager>
         }
         leftSaber.SetActive(false);
         rightSaber.SetActive(false);
+        
+        // 노래선택 스크롤뷰 활성화
+        songSelectUI.SetActive(true);
     }
 
     private void UpdateRemainTimeUI()
@@ -114,4 +117,5 @@ public class GameManager : CustomSingleton<GameManager>
         var controller = isLeft ? leftController : rightController;
         controller?.SendHapticImpulse(amplitude, duration);
     }
+
 }
