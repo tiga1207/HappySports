@@ -10,7 +10,7 @@ public class Saber : MonoBehaviour
     [SerializeField] private bool isLeft;
     private float _duration = 0.10f;
     private float _amplitude = 0.5f;
-    [SerializeField] private float acceptAngle = 45f;
+    [SerializeField] private float acceptAngle = 80f;
     //파티클
     [SerializeField] private ParticleSystem particle;
     public static event Action OnScoreUp;

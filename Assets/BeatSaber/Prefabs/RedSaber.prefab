@@ -268,7 +268,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   cutMaterial: {fileID: 2100000, guid: 7873c5ab5f9b9574fb556db63e4168f2, type: 2}
-  gameManager: {fileID: 0}
   isLeft: 0
-  acceptAngle: 45
+  acceptAngle: 80
   particle: {fileID: 198656289721292014, guid: 8405c970361734563a76aa9c2034622d, type: 3}

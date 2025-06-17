@@ -2637,13 +2637,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rootPath: Songs
   songFolders:
+  - Believer
   - Unity
   - Stronger
   - Bullseye
-  - Believer
-  - Maple
   - ChangSeop
   - Rise
+  - Maple
   allSongs: []
 --- !u!4 &1064058315
 Transform:
@@ -4242,7 +4242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac859850bada1a446963638093540682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatMapJson: {fileID: 4900000, guid: d5be0f3711c3a0b4e8e3ad8d35f1784f, type: 3}
+  beatMapJson: {fileID: 0}
   leftCubePrefab: {fileID: 5578701863509759919, guid: 7626c310febaffb4fa2f003b2a2df779, type: 3}
   rightCubePrefab: {fileID: 5700985710514364936, guid: 73ccd1fb2859f664ca90ef4f15e060a3, type: 3}
   musicSource: {fileID: 1755823413}
