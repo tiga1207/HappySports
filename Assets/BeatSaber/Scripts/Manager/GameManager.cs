@@ -5,6 +5,7 @@ using TMPro;
 using Util;
 using System.IO;
 using System;
+using System.Collections;
 
 public class GameManager : CustomSingleton<GameManager>
 {
@@ -30,12 +31,12 @@ public class GameManager : CustomSingleton<GameManager>
 
     private void OnEnable()
     {
-        SoundManager.Instance.OnMusicEnd += EndGame;
+        SoundManager.Instance.OnMusicEnd += DelayEndGame;
     }
 
     private void OnDisable()
     {
-        SoundManager.Instance.OnMusicEnd -= EndGame;
+        SoundManager.Instance.OnMusicEnd -= DelayEndGame;
     }
 
     private void Update()
@@ -88,6 +89,16 @@ public class GameManager : CustomSingleton<GameManager>
         xROrigin.MoveCameraToWorldLocation(new Vector3(targetPos.x, xROrigin.CameraYOffset, targetPos.z));
     }
 
+    private void DelayEndGame()
+    {
+        StartCoroutine(IE_DelaytoEnd());
+    }
+
+    private IEnumerator IE_DelaytoEnd()
+    {
+        yield return new WaitForSeconds(3f);
+        EndGame();
+    }
     private void EndGame()
     {
         locomotionSys.SetActive(true);
@@ -99,7 +110,7 @@ public class GameManager : CustomSingleton<GameManager>
         }
         leftSaber.SetActive(false);
         rightSaber.SetActive(false);
-        
+
         // 노래선택 스크롤뷰 활성화
         songSelectUI.SetActive(true);
     }
