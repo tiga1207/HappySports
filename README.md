@@ -1,4 +1,4 @@
-# KGA_0612 VR _개인프로젝트
+# VR _개인프로젝트
 
 제목: Happy Sports
 
